@@ -7,7 +7,12 @@ import java.awt.*;
 import java.io.Closeable;
 import java.util.function.Consumer;
 
-public class WebviewAWT extends Canvas implements Closeable {
+/**
+ * Canvas component for embedding a webview in a Java AWT application.
+ *
+ * @author Alex Bowles, Anna Silva
+ */
+public class WebviewComponent extends Canvas implements Closeable {
     @Getter
     private WebviewCore webview;
     private final boolean debug;
@@ -22,14 +27,14 @@ public class WebviewAWT extends Canvas implements Closeable {
 
     private @Getter boolean initialized = false;
 
-    public WebviewAWT() {
+    public WebviewComponent() {
         this(false);
     }
 
     /**
      * @param debug Whether to allow the opening of inspect element/devtools.
      */
-    public WebviewAWT(boolean debug) {
+    public WebviewComponent(boolean debug) {
         this.debug = debug;
         this.setBackground(Color.BLACK);
     }
@@ -52,7 +57,6 @@ public class WebviewAWT extends Canvas implements Closeable {
             // We need to create the webview off of the swing thread.
             Thread t = new Thread(() -> {
                 this.webview = WebviewCore.newComponent(this.debug, this);
-
                 this.updateSize();
 
                 if (this.onInitialized != null) {

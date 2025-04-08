@@ -11,6 +11,11 @@ import com.sun.jna.ptr.PointerByReference;
 import static net.notjustanna.webview.natives.WinHelper.Dwmapi.dwmapi;
 import static net.notjustanna.webview.natives.WinHelper.User32.user32;
 
+/**
+ * Helper class for Wincows-specific functionality.
+ *
+ * @author Alex Bowles, Anna Silva
+ */
 public class WinHelper {
     public static void setWindowAppearance(Pointer nativeWindowPointer, boolean shouldBeDark) {
         // References:
@@ -49,9 +54,8 @@ public class WinHelper {
         user32.InvalidateRect(hwnd, null, 0); // Repaint
     }
 
-
     interface Dwmapi extends Library {
-        static final Dwmapi dwmapi = Native.load("dwmapi", Dwmapi.class);
+        Dwmapi dwmapi = Native.load("dwmapi", Dwmapi.class);
 
         int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
         int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
@@ -61,7 +65,7 @@ public class WinHelper {
     }
 
     interface User32 extends Library {
-        static final User32 user32 = Native.load("user32", User32.class);
+        User32 user32 = Native.load("user32", User32.class);
 
         @SuppressWarnings("UnusedReturnValue")
         int InvalidateRect(HWND hwnd, PointerByReference rect, int erase);

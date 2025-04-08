@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * Enum that represents the platform-specific details for loading webview binaries.
+ * @author Alex Bowles, Anna Silva
+ */
 @Getter
 @ToString
 @AllArgsConstructor

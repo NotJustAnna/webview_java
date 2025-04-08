@@ -10,7 +10,6 @@ repositories {
 }
 
 dependencies {
-    runtimeOnly(project(":natives"))
     compileOnly("org.jetbrains:annotations:26.0.2")
     compileOnly("org.projectlombok:lombok:1.18.38")
     annotationProcessor("org.projectlombok:lombok:1.18.38")
@@ -19,14 +18,9 @@ dependencies {
 
     testCompileOnly("org.projectlombok:lombok:1.18.38")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly(project(":natives"))
 }
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
