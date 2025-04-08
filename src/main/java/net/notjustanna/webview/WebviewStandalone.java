@@ -218,4 +218,20 @@ public class WebviewStandalone implements Closeable, Runnable {
         }
         return this;
     }
+
+    public WebviewStandalone fullscreenWindow() {
+        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
+            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
+            WinHelper.fullscreenWindow(window);
+        }
+        return this;
+    }
+
+    public WebviewStandalone maximizeWindow() {
+        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
+            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
+            WinHelper.maximizeWindow(window);
+        }
+        return this;
+    }
 }
