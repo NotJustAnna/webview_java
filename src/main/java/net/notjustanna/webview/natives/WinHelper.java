@@ -3,18 +3,16 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.PointerType;
+import com.sun.jna.platform.win32.User32;
+import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinDef.BOOL;
 import com.sun.jna.platform.win32.WinDef.BOOLByReference;
 import com.sun.jna.platform.win32.WinDef.HWND;
-import com.sun.jna.ptr.PointerByReference;
-
-import static net.notjustanna.webview.natives.WinHelper.Dwmapi.dwmapi;
-import static net.notjustanna.webview.natives.WinHelper.User32.user32;
 
 /**
  * Helper class for Wincows-specific functionality.
  *
- * @author Alex Bowles, Anna Silva
+ * @author Alex Bowles, Anna Silva, isinvon
  */
 public class WinHelper {
     public static void setWindowAppearance(Pointer nativeWindowPointer, boolean shouldBeDark) {
@@ -37,25 +35,48 @@ public class WinHelper {
         HWND hwnd = new HWND(nativeWindowPointer);
         BOOLByReference pvAttribute = new BOOLByReference(new BOOL(shouldBeDark));
 
-        dwmapi.DwmSetWindowAttribute(
+        if (Dwmapi.INSTANCE.DwmSetWindowAttribute(
             hwnd,
             Dwmapi.DWMWA_USE_IMMERSIVE_DARK_MODE,
             pvAttribute,
             BOOL.SIZE
-        );
+        ) != 0) {
+            throw new RuntimeException("Failed to set window attribute");
+        }
 
-        dwmapi.DwmSetWindowAttribute(
+        if (Dwmapi.INSTANCE.DwmSetWindowAttribute(
             hwnd,
             Dwmapi.DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1,
             pvAttribute,
             BOOL.SIZE
-        );
+        ) != 0) {
+            throw new RuntimeException("Failed to set window attribute");
+        }
 
-        user32.InvalidateRect(hwnd, null, 0); // Repaint
+        if (!User32.INSTANCE.InvalidateRect(hwnd, null, false)) {
+            throw new RuntimeException("Failed to set window attribute");
+        }
+    }
+
+    public static void bringToFront(Pointer nativeWindowPointer) {
+        HWND HWND_TOPMOST = new HWND(new Pointer(-1));
+        HWND hwnd = new HWND(nativeWindowPointer);
+
+        // ... why? no idea.
+        for (int i = 0; i < 2; i++) {
+            if (!User32.INSTANCE.SetWindowPos(
+                hwnd,
+                HWND_TOPMOST,
+                0, 0, 0, 0,
+                User32.SWP_NOMOVE | User32.SWP_NOSIZE
+            )) {
+                throw new RuntimeException("Failed to set window position");
+            }
+        }
     }
 
     interface Dwmapi extends Library {
-        Dwmapi dwmapi = Native.load("dwmapi", Dwmapi.class);
+        Dwmapi INSTANCE = Native.load("dwmapi", Dwmapi.class);
 
         int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
         int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
@@ -64,10 +85,4 @@ public class WinHelper {
         int DwmSetWindowAttribute(HWND hwnd, int dwAttribute, PointerType pvAttribute, int cbAttribute);
     }
 
-    interface User32 extends Library {
-        User32 user32 = Native.load("user32", User32.class);
-
-        @SuppressWarnings("UnusedReturnValue")
-        int InvalidateRect(HWND hwnd, PointerByReference rect, int erase);
-    }
 }

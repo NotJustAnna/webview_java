@@ -205,7 +205,16 @@ public class WebviewStandalone implements Closeable, Runnable {
 
     public WebviewStandalone setDarkMode(boolean darkMode) {
         if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
-            WinHelper.setWindowAppearance(WebviewCore.nativePointer(this.webview), darkMode);
+            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
+            WinHelper.setWindowAppearance(window, darkMode);
+        }
+        return this;
+    }
+
+    public WebviewStandalone bringToFront() {
+        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
+            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
+            WinHelper.bringToFront(window);
         }
         return this;
     }
