@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  publish:
 
     runs-on: ubuntu-latest
     permissions:
@@ -41,7 +41,7 @@ jobs:
       - name: Commit and push
         uses: actions-js/push@master
         with:
-          directory: maven
+          directory: .repo
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: maven
           rebase: true
