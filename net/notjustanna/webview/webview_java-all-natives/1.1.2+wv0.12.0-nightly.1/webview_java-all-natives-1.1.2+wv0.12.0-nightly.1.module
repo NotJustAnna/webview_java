@@ -1,0 +1,97 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.notjustanna.webview",
+    "module": "webview_java-all-natives",
+    "version": "1.1.2+wv0.12.0-nightly.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "webview_java-all-natives-1.1.2+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-all-natives-1.1.2+wv0.12.0-nightly.1.jar",
+          "size": 261,
+          "sha512": "7c4f243d97d0f921bd6dc9bd73d70bc90ea1f6ff9062b19a5b13bb0ccdcdbe32587ed72fe3abb2cf1b3f51537494e53eadc8ab94e4faa5dad61452fbad1f3645",
+          "sha256": "5f1cf04b93b816a11eff4b0415cf32ec946f4e139ee9ef1deae35d0f0f756d97",
+          "sha1": "03bc1898b0e14f3ff0d99eea2134bb2e6e78db85",
+          "md5": "a0153c3c63147ba3e9c9220088b49e6e"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-native-darwin",
+          "version": {
+            "requires": "1.1.2+wv0.12.0-nightly.1"
+          }
+        },
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-native-linux-x86-64",
+          "version": {
+            "requires": "1.1.2+wv0.12.0-nightly.1"
+          }
+        },
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-native-windows-arm64",
+          "version": {
+            "requires": "1.1.2+wv0.12.0-nightly.1"
+          }
+        },
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-native-windows-x86",
+          "version": {
+            "requires": "1.1.2+wv0.12.0-nightly.1"
+          }
+        },
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-native-windows-x86-64",
+          "version": {
+            "requires": "1.1.2+wv0.12.0-nightly.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "webview_java-all-natives-1.1.2+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-all-natives-1.1.2+wv0.12.0-nightly.1.jar",
+          "size": 261,
+          "sha512": "7c4f243d97d0f921bd6dc9bd73d70bc90ea1f6ff9062b19a5b13bb0ccdcdbe32587ed72fe3abb2cf1b3f51537494e53eadc8ab94e4faa5dad61452fbad1f3645",
+          "sha256": "5f1cf04b93b816a11eff4b0415cf32ec946f4e139ee9ef1deae35d0f0f756d97",
+          "sha1": "03bc1898b0e14f3ff0d99eea2134bb2e6e78db85",
+          "md5": "a0153c3c63147ba3e9c9220088b49e6e"
+        }
+      ]
+    }
+  ]
+}
