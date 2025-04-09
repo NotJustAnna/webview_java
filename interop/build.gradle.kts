@@ -2,6 +2,7 @@ allprojects {
     repositories {
         mavenCentral()
     }
+
     dependencies {
         compileOnly("org.jetbrains:annotations:26.0.2")
         compileOnly("org.projectlombok:lombok:1.18.38")
@@ -17,15 +18,19 @@ allprojects {
     }
 
     java {
+        // Set the Java toolchain to use Java 17.
+        // Include source and Javadoc JAR in the build.
         toolchain.languageVersion = JavaLanguageVersion.of(17)
         withSourcesJar()
         withJavadocJar()
     }
 
+    // Helper function to generate artifact names based on project hierarchy
     fun artifactName(project: Project): String {
         return artifactName(project.parent ?: return project.name) + "-${project.name}"
     }
 
+    // Configures publishing settings for all projects
     publishing {
         publications {
             register<MavenPublication>("default") {
@@ -40,6 +45,7 @@ allprojects {
 
 subprojects {
     dependencies {
+        // Adds the parent project as an API dependency
         api(project.parent!!)
     }
 }
