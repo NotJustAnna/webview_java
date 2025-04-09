@@ -1,0 +1,60 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.notjustanna.webview",
+    "module": "webview_java-native-windows-arm64",
+    "version": "1.0.0+wv0.12.0-nightly.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "webview_java-native-windows-arm64-1.0.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-native-windows-arm64-1.0.0+wv0.12.0-nightly.1.jar",
+          "size": 43048,
+          "sha512": "848e9817f016140cc1fd5840c0c3a3e52b562efe48e68c04b0277e2d5038634c68370f49272639475402114767a9ce4e3184e89756c61697502780859231f333",
+          "sha256": "fa9cc89a4c2ea5adf1ada17847e768b95be509c6d6dce7d809511f6884596304",
+          "sha1": "e411e3d26f0257539c8084285cced2e95d578a42",
+          "md5": "e67c1a14def7457d83e138b3a0ab4e8c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-native-windows-arm64-1.0.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-native-windows-arm64-1.0.0+wv0.12.0-nightly.1.jar",
+          "size": 43048,
+          "sha512": "848e9817f016140cc1fd5840c0c3a3e52b562efe48e68c04b0277e2d5038634c68370f49272639475402114767a9ce4e3184e89756c61697502780859231f333",
+          "sha256": "fa9cc89a4c2ea5adf1ada17847e768b95be509c6d6dce7d809511f6884596304",
+          "sha1": "e411e3d26f0257539c8084285cced2e95d578a42",
+          "md5": "e67c1a14def7457d83e138b3a0ab4e8c"
+        }
+      ]
+    }
+  ]
+}
