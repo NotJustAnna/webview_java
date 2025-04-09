@@ -107,13 +107,6 @@ subprojects {
 
 allprojects {
     publishing {
-        repositories {
-            this.maven {
-                name = "local"
-                url = uri("${project.rootDir}/.repo")
-            }
-        }
-
         publications {
             register<MavenPublication>("default") {
                 from(components["java"])

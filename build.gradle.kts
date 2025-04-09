@@ -12,6 +12,15 @@ allprojects {
 
     group = "net.notjustanna.webview"
     version = "$baseVersion+wv$nativeVersion"
+
+    publishing {
+        repositories {
+            this.maven {
+                name = "local"
+                url = uri("${project.rootDir}/.repo")
+            }
+        }
+    }
 }
 
 java {
@@ -42,13 +51,6 @@ tasks.javadoc {
 }
 
 publishing {
-    repositories {
-        this.maven {
-            name = "local"
-            url = uri("${project.rootDir}/.repo")
-        }
-    }
-
     publications {
         register<MavenPublication>("default") {
             from(components["java"])
