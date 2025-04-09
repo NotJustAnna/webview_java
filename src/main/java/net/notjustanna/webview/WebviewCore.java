@@ -8,7 +8,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.io.Closeable;
+import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Core webview instance, responsible for properly interfacing with native libraries.
@@ -56,6 +58,8 @@ public class WebviewCore implements Closeable, Runnable {
      * The pointer to the webview instance.
      */
     private final Pointer $webview_t;
+
+    private final Map<String, Object> bind_refs = new ConcurrentHashMap<>();
 
     /**
      * Creates a new webview instance.
@@ -198,6 +202,7 @@ public class WebviewCore implements Closeable, Runnable {
         } else if (result != WebviewNative.ERROR_OK) {
             WebviewCore.handleError(result);
         }
+        bind_refs.put(name, callback);
         return this;
     }
 
@@ -259,6 +264,7 @@ public class WebviewCore implements Closeable, Runnable {
     @Override
     public void close() {
         WebviewCore.handleError(WebviewNative.INSTANCE.webview_terminate($webview_t));
+        bind_refs.clear();
     }
 
     /**

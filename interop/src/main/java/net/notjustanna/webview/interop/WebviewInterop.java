@@ -91,7 +91,7 @@ public abstract class WebviewInterop<Self extends WebviewInterop<Self, Fn>, Fn> 
                 WebviewNative.INSTANCE.webview_return(wv, id, 0, res);
             } catch (Exception e) {
                 String res = this.errorToJson(e);
-                WebviewNative.INSTANCE.webview_return(wv, id, 0, res);
+                WebviewNative.INSTANCE.webview_return(wv, id, 1, res);
             }
         };
     }
