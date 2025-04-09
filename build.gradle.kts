@@ -1,5 +1,5 @@
 plugins {
-    java
+    `java-library`
     `maven-publish`
 }
 
@@ -7,7 +7,7 @@ val baseVersion = providers.gradleProperty("webview_java.version").get()
 val nativeVersion = providers.gradleProperty("natives.github-release").get().split('+').first()
 
 allprojects {
-    apply(plugin = "java")
+    apply(plugin = "java-library")
     apply(plugin = "maven-publish")
 
     group = "net.notjustanna.webview"

@@ -40,6 +40,6 @@ allprojects {
 
 subprojects {
     dependencies {
-        implementation(project.parent!!)
+        api(project.parent!!)
     }
 }
