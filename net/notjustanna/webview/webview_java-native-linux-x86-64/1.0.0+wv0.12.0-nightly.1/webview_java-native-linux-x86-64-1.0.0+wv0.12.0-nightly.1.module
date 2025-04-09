@@ -28,10 +28,10 @@
           "name": "webview_java-native-linux-x86-64-1.0.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-native-linux-x86-64-1.0.0+wv0.12.0-nightly.1.jar",
           "size": 40776,
-          "sha512": "acaafe0584c727e84631cc8c5d024d1d275fda5a70aa4775fa2dd72d894ced9a21f3be029b0aa1e58786116905299461d1350ccb89c2e7b0e24495e181c77762",
-          "sha256": "dd2a27c1ec6ddf689c81ace8e59a6be3e4d464bdc3a28470a33f1cb9a1ce3601",
-          "sha1": "9d82adacfbd5d6eecdac47a6076f866915be2244",
-          "md5": "969f02560e8dc0230e4b741397e5fce7"
+          "sha512": "a3e379cbf7a64cb43d8c8169c7928ec45fc9d68fe837ec4e79ebe709c54d51fe0f33324d5efe5560b2706e3714b73063152bea51b00a3bfbed0fe38e8d595680",
+          "sha256": "0d1f07af819d0c12377c29015a8e77a9559bcf6a89d9bfbeaa5e27bd6b4fc42c",
+          "sha1": "a1df7c6decf546c27293829e76312fbdc774fa8f",
+          "md5": "cc58df214162853270f6c9320eb13af1"
         }
       ]
     },
@@ -49,10 +49,10 @@
           "name": "webview_java-native-linux-x86-64-1.0.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-native-linux-x86-64-1.0.0+wv0.12.0-nightly.1.jar",
           "size": 40776,
-          "sha512": "acaafe0584c727e84631cc8c5d024d1d275fda5a70aa4775fa2dd72d894ced9a21f3be029b0aa1e58786116905299461d1350ccb89c2e7b0e24495e181c77762",
-          "sha256": "dd2a27c1ec6ddf689c81ace8e59a6be3e4d464bdc3a28470a33f1cb9a1ce3601",
-          "sha1": "9d82adacfbd5d6eecdac47a6076f866915be2244",
-          "md5": "969f02560e8dc0230e4b741397e5fce7"
+          "sha512": "a3e379cbf7a64cb43d8c8169c7928ec45fc9d68fe837ec4e79ebe709c54d51fe0f33324d5efe5560b2706e3714b73063152bea51b00a3bfbed0fe38e8d595680",
+          "sha256": "0d1f07af819d0c12377c29015a8e77a9559bcf6a89d9bfbeaa5e27bd6b4fc42c",
+          "sha1": "a1df7c6decf546c27293829e76312fbdc774fa8f",
+          "md5": "cc58df214162853270f6c9320eb13af1"
         }
       ]
     }

@@ -28,10 +28,10 @@
           "name": "webview_java-native-darwin-1.0.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-native-darwin-1.0.0+wv0.12.0-nightly.1.jar",
           "size": 76796,
-          "sha512": "a72f7a0a6a16bcc516d4868c4de4012bf176d2fa2599157570b52b7752d55c8f8462d2d00e0f0b0db1ab2d6857faa05b9d8499d1964fad182e35a6d5dbca1d91",
-          "sha256": "8ef784c4cafb3d6634c21a21d73327fbcc6997750b21a9007de23dec65d1a667",
-          "sha1": "0bbd4c69528f5db1099c750acaf2a11589c2584a",
-          "md5": "d106ad37b0fd4b5bdadcdbb24b15b575"
+          "sha512": "582a50ecb87686423f36c01b57f1e45413f5f1094d317d1b2bcefa5d29e3c167cddfd8c53938077ae76bf2b4d92848c8f559f29c7feec63f294920d32e3444fc",
+          "sha256": "7047c6dffecb47b720b1b24fd5fa129ffb63e8625e2d9d5f01e731622f9160df",
+          "sha1": "df107f3834f8031cfcb8156e2e405ba426ad3e44",
+          "md5": "386e16951a47807ef7f37c52a51a94cc"
         }
       ]
     },
@@ -49,10 +49,10 @@
           "name": "webview_java-native-darwin-1.0.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-native-darwin-1.0.0+wv0.12.0-nightly.1.jar",
           "size": 76796,
-          "sha512": "a72f7a0a6a16bcc516d4868c4de4012bf176d2fa2599157570b52b7752d55c8f8462d2d00e0f0b0db1ab2d6857faa05b9d8499d1964fad182e35a6d5dbca1d91",
-          "sha256": "8ef784c4cafb3d6634c21a21d73327fbcc6997750b21a9007de23dec65d1a667",
-          "sha1": "0bbd4c69528f5db1099c750acaf2a11589c2584a",
-          "md5": "d106ad37b0fd4b5bdadcdbb24b15b575"
+          "sha512": "582a50ecb87686423f36c01b57f1e45413f5f1094d317d1b2bcefa5d29e3c167cddfd8c53938077ae76bf2b4d92848c8f559f29c7feec63f294920d32e3444fc",
+          "sha256": "7047c6dffecb47b720b1b24fd5fa129ffb63e8625e2d9d5f01e731622f9160df",
+          "sha1": "df107f3834f8031cfcb8156e2e405ba426ad3e44",
+          "md5": "386e16951a47807ef7f37c52a51a94cc"
         }
       ]
     }
