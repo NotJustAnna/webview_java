@@ -1,0 +1,60 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.notjustanna.webview",
+    "module": "webview_java-native-darwin",
+    "version": "1.1.0+wv0.12.0-nightly.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "webview_java-native-darwin-1.1.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-native-darwin-1.1.0+wv0.12.0-nightly.1.jar",
+          "size": 76796,
+          "sha512": "55935620307cb27841c9a4ce971dfc5506f1cc046ebcfe08d386fcc82ef7b3aa58aef3e187f52ea52edae319800a986e51d3c9a6ab869f9e09a9962d01c8e459",
+          "sha256": "14d0fba2afcf4e785e78d73bf015441ae8ef243f726819d2576da8b92fee1d5d",
+          "sha1": "d15a10c7fa1f06be2ab61354acf3e08906dcdbb3",
+          "md5": "13820b69ec61256bdf65e1d01e8b9a32"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-native-darwin-1.1.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-native-darwin-1.1.0+wv0.12.0-nightly.1.jar",
+          "size": 76796,
+          "sha512": "55935620307cb27841c9a4ce971dfc5506f1cc046ebcfe08d386fcc82ef7b3aa58aef3e187f52ea52edae319800a986e51d3c9a6ab869f9e09a9962d01c8e459",
+          "sha256": "14d0fba2afcf4e785e78d73bf015441ae8ef243f726819d2576da8b92fee1d5d",
+          "sha1": "d15a10c7fa1f06be2ab61354acf3e08906dcdbb3",
+          "md5": "13820b69ec61256bdf65e1d01e8b9a32"
+        }
+      ]
+    }
+  ]
+}
