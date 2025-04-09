@@ -1,9 +1,24 @@
 plugins {
     java
+    `maven-publish`
 }
 
-group = "net.notjustanna"
-version = "1.0-SNAPSHOT"
+val baseVersion = providers.gradleProperty("webview_java.version").get()
+val nativeVersion = providers.gradleProperty("natives.github-release").get().split('+').first()
+
+allprojects {
+    apply(plugin = "java")
+    apply(plugin = "maven-publish")
+
+    group = "net.notjustanna.webview"
+    version = "$baseVersion+wv$nativeVersion"
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    withSourcesJar()
+    withJavadocJar()
+}
 
 repositories {
     mavenCentral()
@@ -21,6 +36,25 @@ dependencies {
     testRuntimeOnly(project(":natives"))
 }
 
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.javadoc {
+    (options as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet")
+    (options as StandardJavadocDocletOptions).links("https://docs.oracle.com/en/java/javase/17/docs/api/")
+}
+
+publishing {
+    repositories {
+        this.maven {
+            name = "local"
+            url = uri("${project.rootDir}/.repo")
+        }
+    }
+
+    publications {
+        register<MavenPublication>("default") {
+            from(components["java"])
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
+        }
+    }
 }

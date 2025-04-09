@@ -2,56 +2,42 @@ import kotlinx.serialization.json.*
 import java.net.URI
 
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
-    }
+    repositories { mavenCentral() }
+    dependencies { classpath("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1") }
 }
-
-plugins {
-    java
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-
-val editions = providers.gradleProperty("natives.editions")
-    .getOrElse("")
-    .split(',')
-    .map { ":natives:$it" }
-    .toTypedArray()
 
 dependencies {
-    editions.forEach { runtimeOnly(project(it)) }
+    subprojects.forEach { runtimeOnly(it) }
 }
 
-val nativePackageSuffix = "-lib.tar.gz"
+allprojects {
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
 
-val downloadMetadata by tasks.creating {
-    val repo = providers.gradleProperty("natives.github-repo").get()
-    val release = providers.gradleProperty("natives.github-release").get()
+tasks {
+    val downloadMetadata by creating {
+        val repo = providers.gradleProperty("natives.github-repo").get()
+        val release = providers.gradleProperty("natives.github-release").get()
 
-    this.inputs.properties("repo" to repo, "release" to release)
+        this.inputs.properties("repo" to repo, "release" to release)
 
-    doLast {
-        val releaseUrls = URI("https://api.github.com/repos/$repo/releases/tags/$release")
-            .toURL().openStream().use { it.readAllBytes().toString(Charsets.UTF_8) }
-            .let { Json.decodeFromString<JsonObject>(it) }
-            .getValue("assets").jsonArray.map {
-                it.jsonObject.getValue("browser_download_url").jsonPrimitive.content
-            }
+        doLast {
+            val releaseUrls = URI("https://api.github.com/repos/$repo/releases/tags/$release")
+                .toURL().openStream().use { it.readAllBytes().toString(Charsets.UTF_8) }
+                .let { Json.decodeFromString<JsonObject>(it) }
+                .getValue("assets").jsonArray.map {
+                    it.jsonObject.getValue("browser_download_url").jsonPrimitive.content
+                }
 
-        this.extra.set("releaseUrls", releaseUrls)
+            this.extra.set("releaseUrls", releaseUrls)
+        }
     }
 }
 
 subprojects {
-    plugins.apply("base")
-
     tasks {
         val assemble by getting
 
@@ -62,6 +48,7 @@ subprojects {
 
             outputs.dir(outputDir)
 
+            val downloadMetadata by project.parent!!.tasks.getting
             dependsOn(downloadMetadata)
 
             this.doFirst {
@@ -111,14 +98,30 @@ subprojects {
             }
         }
 
-        val jar by creating(Jar::class) {
-            archiveBaseName = "native-${project.name}"
+        val jar by getting(Jar::class) {
             dependsOn(pack)
-            includeEmptyDirs = false
             from(zipTree(pack.outputs.files.singleFile))
         }
+    }
+}
 
-        assemble.dependsOn(jar)
-        artifacts.add("default", jar)
+allprojects {
+    publishing {
+        repositories {
+            this.maven {
+                name = "local"
+                url = uri("${project.rootDir}/.repo")
+            }
+        }
+
+        publications {
+            register<MavenPublication>("default") {
+                from(components["java"])
+                groupId = project.group.toString()
+                artifactId = if (project.name == "natives") "${rootProject.name}-all-natives"
+                else "${rootProject.name}-native-${project.name}"
+                version = project.version.toString()
+            }
+        }
     }
 }
