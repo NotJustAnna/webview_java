@@ -37,6 +37,13 @@ jobs:
       - name: Publish to Maven Local
         run: ./gradlew publishAllPublicationsToLocalRepository
 
+      - name: Update README
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const it = require("./.github/workflows/write-readme.js");
+            await it.main("./.repo/README.md");
+
       - name: Commit and push
         uses: actions-js/push@master
         with:
