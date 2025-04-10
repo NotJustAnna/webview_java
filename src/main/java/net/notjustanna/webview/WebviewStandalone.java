@@ -39,11 +39,12 @@ public class WebviewStandalone implements Closeable, Runnable {
     }
 
     /**
-     * Executes the webview event loop asynchronously until the user presses "X" on
-     * the window.
+     * @deprecated <a href="https://github.com/NotJustAnna/webview_java/issues/1">Does not work</a>.
+     * Use {@link #run()} instead.
      *
      * @see #close()
      */
+    @Deprecated
     public Thread runAsync() {
         return webview.runAsync();
     }

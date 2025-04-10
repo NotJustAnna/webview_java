@@ -2,6 +2,7 @@ plugins {
     // Building a java library which publishes artifacts to a Maven repository.
     `java-library`
     `maven-publish`
+    id("me.champeau.mrjar") version "0.1"
 }
 
 // Properties from gradle.properties file
@@ -29,11 +30,23 @@ allprojects {
 }
 
 java {
-    // Set the Java toolchain to use Java 17.
+    // Set the Java toolchain to use Java 21.
     // Include source and Javadoc JAR in the build.
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
     withSourcesJar()
     withJavadocJar()
+}
+
+// Configures the multi-release JAR settings.
+// Specifies the target Java versions for the multi-release JAR.
+multiRelease {
+    targetVersions(17, 21) // Defines the Java versions for which specific class files can be included.
+}
+
+// Sets the source and target compatibility of the main Java code to Java 17.
+tasks.compileJava {
+    sourceCompatibility = "17"
+    targetCompatibility = "17"
 }
 
 repositories {

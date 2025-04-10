@@ -10,10 +10,6 @@ import com.sun.jna.platform.mac.SystemB;
  * @author Anna Silva
  */
 public class MacHelper {
-    public static boolean isMainThread() {
-        return Thread.currentThread().getId() == 1;
-    }
-
     public static boolean startedOnFirstThread() {
         // https://github.com/crykn/guacamole/blob/v0.3.5/gdx-desktop/src/main/java/de/damios/guacamole/gdx/StartOnFirstThreadHelper.java
         return "1".equals(System.getenv("JAVA_STARTED_ON_FIRST_THREAD_" + SystemB.INSTANCE.getpid()));

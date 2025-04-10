@@ -2,6 +2,7 @@ package net.notjustanna.webview;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
+import net.notjustanna.webview.natives.JvmHelper;
 import net.notjustanna.webview.natives.MacHelper;
 import net.notjustanna.webview.natives.PlatformSpecific;
 import net.notjustanna.webview.natives.WebviewNative;
@@ -13,6 +14,7 @@ import java.io.Closeable;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -67,13 +69,13 @@ public class WebviewCore implements Closeable, Runnable {
      * This is used to keep references to the callbacks, so they are not garbage collected
      * and can be accessed by the native code.
      */
-    private final Map<String, Object> bindRefs = new ConcurrentHashMap<>();
+    private final Map<String, Object> bindRefs;
 
     /**
      * Weak reference to the thread that created the webview instance.
      * Used to reference if {@link #run()} is called from the thread that created the webview.
      */
-    private final WeakReference<Thread> threadRef = new WeakReference<>(Thread.currentThread());
+    private final WeakReference<Thread> threadRef;
 
     /**
      * Creates a new webview instance.
@@ -84,23 +86,25 @@ public class WebviewCore implements Closeable, Runnable {
     public WebviewCore(boolean enableDevTools, @Nullable Pointer windowPointer) {
         if (PlatformSpecific.current == PlatformSpecific.DARWIN) {
             if (!MacHelper.startedOnFirstThread()) {
-                throw new UnsupportedOperationException("Cannot create webview on a non-main thread on macOS." +
-                    "Reload the application with -XstartOnFirstThread to fix this.");
+                String extra = JvmHelper.isMainThread() ? MACOS_RELOAD : MACOS_DEVELOPER_ERROR;
+                throw new UnsupportedOperationException(ERROR_NO_XSTART_ON_FIRST_THREAD + extra);
             }
 
-            if (!MacHelper.isMainThread()) {
-                throw new UnsupportedOperationException("Cannot create webview on a non-main thread on macOS.");
+            if (!JvmHelper.isMainThread()) {
+                throw new UnsupportedOperationException(ERROR_MAC_OS_NOT_MAIN_THREAD);
             }
+        }
+
+        if (JvmHelper.isCurrentThreadVirtual()) {
+            throw new UnsupportedOperationException(ERROR_VIRTUAL_THREAD);
         }
 
         $webview_t = WebviewNative.INSTANCE.webview_create(enableDevTools, windowPointer);
         if ($webview_t == null) {
-            throw new RuntimeException("Failed to create webview");
+            throw new RuntimeException(ERROR_FAILED_TO_CREATE_WEBVIEW);
         }
-        if (Pointer.nativeValue($webview_t) == WebviewNative.ERROR_MISSING_DEPENDENCY) {
-            throw new UnsupportedOperationException("Failed to create a webview, due to a missing dependency. " +
-                "If you are on Windows, this means that Webview2 is unavailable.");
-        }
+        threadRef = new WeakReference<>(Thread.currentThread());
+        bindRefs = new ConcurrentHashMap<>();
     }
 
     /**
@@ -230,6 +234,17 @@ public class WebviewCore implements Closeable, Runnable {
         bindRefs.put(name, callback);
         return this;
     }
+    /**
+     * Retrieves a list of all currently bound JavaScript function names.
+     * <p>
+     * This method returns the keys from the internal map of bindings, which
+     * represent the names of JavaScript functions bound to native callbacks.
+     *
+     * @return A list of bound JavaScript function names.
+     */
+    public Set<String> boundFunctions() {
+        return Set.copyOf(bindRefs.keySet());
+    }
 
     /**
      * Unbinds a function, removing it from future pages.
@@ -243,6 +258,7 @@ public class WebviewCore implements Closeable, Runnable {
         } else if (result != WebviewNative.ERROR_OK) {
             WebviewCore.handleError(result);
         }
+        bindRefs.remove(name);
         return this;
     }
 
@@ -265,28 +281,22 @@ public class WebviewCore implements Closeable, Runnable {
      */
     @Override
     public void run() {
-        if (PlatformSpecific.current.isWindows() && Thread.currentThread() != threadRef.get()) {
-            throw new UnsupportedOperationException("Cannot run webview from a different thread than the one that created it.");
+        if (Thread.currentThread() != threadRef.get()) {
+            throw new UnsupportedOperationException(ERROR_DIFFERENT_THREAD_RUN);
         }
         WebviewCore.handleError(WebviewNative.INSTANCE.webview_run($webview_t));
         WebviewCore.handleError(WebviewNative.INSTANCE.webview_destroy($webview_t));
     }
 
     /**
-     * Executes the webview event loop asynchronously until the user presses "X" on
-     * the window.
+     * @deprecated <a href="https://github.com/NotJustAnna/webview_java/issues/1">Does not work</a>.
+     * Use {@link #run()} instead.
      *
      * @see #close()
      */
+    @Deprecated
     public Thread runAsync() {
-        if (PlatformSpecific.current.isWindows()) {
-            throw new UnsupportedOperationException("Cannot run webview from a different thread than the one that created it.");
-        }
-        Thread t = new Thread(this);
-        t.setDaemon(false);
-        t.setName("Webview RunAsync Thread - #" + this.hashCode());
-        t.start();
-        return t;
+        throw new UnsupportedOperationException(ERROR_RUN_ASYNC);
     }
 
     /**
@@ -334,4 +344,24 @@ public class WebviewCore implements Closeable, Runnable {
         }
         throw new RuntimeException(errorMessage);
     }
+
+    private static final String ERROR_DIFFERENT_THREAD_RUN = "Webview has to be executed on the same thread it was created on. " +
+        "This is a limitation of the underlying webview library.";
+
+    private static final String MACOS_RELOAD = "Reload the application with -XstartOnFirstThread to fix this.";
+
+    private static final String MACOS_DEVELOPER_ERROR = "Also, webview has to be run on JVM's main thread. " +
+        "This is a limitation of MacOS.";
+
+    private static final String ERROR_NO_XSTART_ON_FIRST_THREAD = "Process was not started with -XstartOnFirstThread. ";
+
+    private static final String ERROR_MAC_OS_NOT_MAIN_THREAD = "Cannot create webview on a non-main thread on macOS.";
+
+    private static final String ERROR_FAILED_TO_CREATE_WEBVIEW = "Failed to create webview";
+
+    private static final String ERROR_RUN_ASYNC = "runAsync() is deprecated, as it is not possible to run the webview " +
+        "on a different thread than the one it was created on. Please use run() or create a webview instance in a separate thread.";
+
+    private static final String ERROR_VIRTUAL_THREAD = "Webview cannot be created on a virtual thread. " +
+        "This is a limitation of the underlying webview library. Since it blocks the thread indefinitely, it's also a misuse of virtual threads.";
 }
