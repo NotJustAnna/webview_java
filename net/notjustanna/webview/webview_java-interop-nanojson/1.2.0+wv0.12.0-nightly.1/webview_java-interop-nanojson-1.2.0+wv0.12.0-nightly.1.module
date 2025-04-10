@@ -1,0 +1,146 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.notjustanna.webview",
+    "module": "webview_java-interop-nanojson",
+    "version": "1.2.0+wv0.12.0-nightly.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-interop",
+          "version": {
+            "requires": "1.2.0+wv0.12.0-nightly.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1.jar",
+          "size": 3238,
+          "sha512": "b3f1aa923203ec62b21b04417c014a505fa4b9db9fea761a1f803038aeff5998df6de360eef505204e5efc399d92512fc00ac296fe13483687cc337ee7b4e9a2",
+          "sha256": "a034c78a64ddf1b6a3d7084f90d6c75ec0ce3ff4c18aecdaf65cd7457eb26991",
+          "sha1": "ebecd1703a6d8788d95bf051e2d8f8a6208b0531",
+          "md5": "bd38423c871a50c8f2dec9fd68963858"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java",
+          "version": {
+            "requires": "1.2.0+wv0.12.0-nightly.1"
+          }
+        },
+        {
+          "group": "net.java.dev.jna",
+          "module": "jna",
+          "version": {
+            "requires": "5.17.0"
+          }
+        },
+        {
+          "group": "net.java.dev.jna",
+          "module": "jna-platform",
+          "version": {
+            "requires": "5.17.0"
+          }
+        },
+        {
+          "group": "com.grack",
+          "module": "nanojson",
+          "version": {
+            "requires": "1.7"
+          }
+        },
+        {
+          "group": "net.notjustanna.webview",
+          "module": "webview_java-interop",
+          "version": {
+            "requires": "1.2.0+wv0.12.0-nightly.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1.jar",
+          "size": 3238,
+          "sha512": "b3f1aa923203ec62b21b04417c014a505fa4b9db9fea761a1f803038aeff5998df6de360eef505204e5efc399d92512fc00ac296fe13483687cc337ee7b4e9a2",
+          "sha256": "a034c78a64ddf1b6a3d7084f90d6c75ec0ce3ff4c18aecdaf65cd7457eb26991",
+          "sha1": "ebecd1703a6d8788d95bf051e2d8f8a6208b0531",
+          "md5": "bd38423c871a50c8f2dec9fd68963858"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1-sources.jar",
+          "url": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1-sources.jar",
+          "size": 2606,
+          "sha512": "a6592de5a8fd9b6f15b58e550fe61ca814d357263b9035bbaec2723e15e752ee07f6781a5c4afbb293d8ac6c2ac62b1780dfef05ac2b6426b33bed1febedcda7",
+          "sha256": "149df4fb657b552976eb641237a118d6446b5de7e0e849ef3c74293e48aa15a9",
+          "sha1": "3fe9542ba5c8b53402ec870ed8624b848c62cc7e",
+          "md5": "8e00d50ffad8d029002295bfd96fc276"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1-javadoc.jar",
+          "url": "webview_java-interop-nanojson-1.2.0+wv0.12.0-nightly.1-javadoc.jar",
+          "size": 88992,
+          "sha512": "cdd142c18d640df31907ad8616a597c4795131c0204dd922ce348fede6bf540dc3f90476883ca019f29f80155d4f0c494136bc369fe28322724adf6a85421f5b",
+          "sha256": "f76c924611b20fa2b1c538a757a565980bec452ff4fe3d6b1e2822b757b4685d",
+          "sha1": "08c386f2428d2370d45a296f838942f87b37fc12",
+          "md5": "9c83e9f51171becf98171f72b5621fcf"
+        }
+      ]
+    }
+  ]
+}
