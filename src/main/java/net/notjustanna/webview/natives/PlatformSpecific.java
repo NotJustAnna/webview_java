@@ -22,6 +22,7 @@ public enum PlatformSpecific {
 
     private final String packageName;
     private final String binaryName;
+    private final boolean isWindows = this.name().startsWith("WINDOWS");
 
     public static final PlatformSpecific current = detectCurrent();
 

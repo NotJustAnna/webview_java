@@ -2,6 +2,7 @@ package net.notjustanna.webview;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.notjustanna.webview.natives.PlatformSpecific;
 
 import java.awt.*;
 import java.io.Closeable;
@@ -35,6 +36,9 @@ public class WebviewComponent extends Canvas implements Closeable {
      * @param debug Whether to allow the opening of inspect element/devtools.
      */
     public WebviewComponent(boolean debug) {
+        if (PlatformSpecific.current == PlatformSpecific.DARWIN) {
+            throw new UnsupportedOperationException("WebviewComponent is not supported on macOS.");
+        }
         this.debug = debug;
         this.setBackground(Color.BLACK);
     }

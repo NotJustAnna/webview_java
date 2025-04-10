@@ -5,13 +5,21 @@ import com.sun.jna.Pointer;
 import com.sun.jna.PointerType;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
+import net.notjustanna.webview.WebviewCore;
+
 /**
- * Helper class for Wincows-specific functionality.
+ * Helper class for Windows-specific functionality.
+ * <p>
+ * This class is internal to the library! Class structure and methods may change at any release without notice.
  *
  * @author Alex Bowles, Anna Silva, isinvon
  */
 public class WinHelper {
-    public static void setWindowAppearance(Pointer nativeWindowPointer, boolean shouldBeDark) {
+    private static WinDef.HWND hwndOf(WebviewCore webview) {
+        return new WinDef.HWND(WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(webview)));
+    }
+
+    public static void setWindowAppearance(WebviewCore webview, boolean shouldBeDark) {
         // References:
         // https://docs.microsoft.com/en-us/windows/win32/api/dwmapi/nf-dwmapi-dwmsetwindowattribute
         // https://winscp.net/forum/viewtopic.php?t=30088
@@ -28,7 +36,7 @@ public class WinHelper {
         InvalidateRect(hwnd, null, FALSE);
         */
 
-        WinDef.HWND hwnd = new WinDef.HWND(nativeWindowPointer);
+        WinDef.HWND hwnd = WinHelper.hwndOf(webview);
         WinDef.BOOLByReference pvAttribute = new WinDef.BOOLByReference(new WinDef.BOOL(shouldBeDark));
 
         if (Dwmapi.INSTANCE.DwmSetWindowAttribute(
@@ -54,9 +62,16 @@ public class WinHelper {
         }
     }
 
-    public static void bringToFront(Pointer nativeWindowPointer) {
+    public static void bringToFront(WebviewCore webview) {
+        WinDef.HWND hwnd = WinHelper.hwndOf(webview);
+        if (!User32.INSTANCE.SetForegroundWindow(hwnd)) {
+            throw new RuntimeException("Failed to bring window to front");
+        }
+    }
+
+    public static void alwaysOnTop(WebviewCore webview) {
+        WinDef.HWND hwnd = WinHelper.hwndOf(webview);
         WinDef.HWND topmost = new WinDef.HWND(new Pointer(-1));
-        WinDef.HWND hwnd = new WinDef.HWND(nativeWindowPointer);
 
         // ... why? no idea.
         for (int i = 0; i < 2; i++) {
@@ -71,9 +86,8 @@ public class WinHelper {
         }
     }
 
-    public static void fullscreenWindow(Pointer nativeWindowPointer) {
-        WinDef.HWND hwnd = new WinDef.HWND(nativeWindowPointer);
-
+    public static void fullscreenWindow(WebviewCore webview) {
+        WinDef.HWND hwnd = WinHelper.hwndOf(webview);
         // Get the screen dimensions
         WinDef.RECT rect = new WinDef.RECT();
         if (!User32.INSTANCE.GetWindowRect(hwnd, rect)) {
@@ -93,9 +107,8 @@ public class WinHelper {
         }
     }
 
-    public static void maximizeWindow(Pointer nativeWindowPointer) {
-        WinDef.HWND hwnd = new WinDef.HWND(nativeWindowPointer);
-
+    public static void maximizeWindow(WebviewCore webview) {
+        WinDef.HWND hwnd = WinHelper.hwndOf(webview);
         // Maximize the window
         User32.INSTANCE.ShowWindow(hwnd, User32.SW_MAXIMIZE);
     }
@@ -106,8 +119,6 @@ public class WinHelper {
         int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
         int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
 
-        @SuppressWarnings("UnusedReturnValue")
         int DwmSetWindowAttribute(WinDef.HWND hwnd, int dwAttribute, PointerType pvAttribute, int cbAttribute);
     }
-
 }

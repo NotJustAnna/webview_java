@@ -2,12 +2,15 @@ package net.notjustanna.webview;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
+import net.notjustanna.webview.natives.MacHelper;
+import net.notjustanna.webview.natives.PlatformSpecific;
 import net.notjustanna.webview.natives.WebviewNative;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.io.Closeable;
+import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentHashMap;
@@ -59,7 +62,18 @@ public class WebviewCore implements Closeable, Runnable {
      */
     private final Pointer $webview_t;
 
-    private final Map<String, Object> bind_refs = new ConcurrentHashMap<>();
+    /**
+     * Concurrent Map of all bindings to their respective callbacks.
+     * This is used to keep references to the callbacks, so they are not garbage collected
+     * and can be accessed by the native code.
+     */
+    private final Map<String, Object> bindRefs = new ConcurrentHashMap<>();
+
+    /**
+     * Weak reference to the thread that created the webview instance.
+     * Used to reference if {@link #run()} is called from the thread that created the webview.
+     */
+    private final WeakReference<Thread> threadRef = new WeakReference<>(Thread.currentThread());
 
     /**
      * Creates a new webview instance.
@@ -68,6 +82,17 @@ public class WebviewCore implements Closeable, Runnable {
      * @param windowPointer  Optional native window handle.
      */
     public WebviewCore(boolean enableDevTools, @Nullable Pointer windowPointer) {
+        if (PlatformSpecific.current == PlatformSpecific.DARWIN) {
+            if (!MacHelper.startedOnFirstThread()) {
+                throw new UnsupportedOperationException("Cannot create webview on a non-main thread on macOS." +
+                    "Reload the application with -XstartOnFirstThread to fix this.");
+            }
+
+            if (!MacHelper.isMainThread()) {
+                throw new UnsupportedOperationException("Cannot create webview on a non-main thread on macOS.");
+            }
+        }
+
         $webview_t = WebviewNative.INSTANCE.webview_create(enableDevTools, windowPointer);
         if ($webview_t == null) {
             throw new RuntimeException("Failed to create webview");
@@ -202,7 +227,7 @@ public class WebviewCore implements Closeable, Runnable {
         } else if (result != WebviewNative.ERROR_OK) {
             WebviewCore.handleError(result);
         }
-        bind_refs.put(name, callback);
+        bindRefs.put(name, callback);
         return this;
     }
 
@@ -240,6 +265,9 @@ public class WebviewCore implements Closeable, Runnable {
      */
     @Override
     public void run() {
+        if (PlatformSpecific.current.isWindows() && Thread.currentThread() != threadRef.get()) {
+            throw new UnsupportedOperationException("Cannot run webview from a different thread than the one that created it.");
+        }
         WebviewCore.handleError(WebviewNative.INSTANCE.webview_run($webview_t));
         WebviewCore.handleError(WebviewNative.INSTANCE.webview_destroy($webview_t));
     }
@@ -251,6 +279,9 @@ public class WebviewCore implements Closeable, Runnable {
      * @see #close()
      */
     public Thread runAsync() {
+        if (PlatformSpecific.current.isWindows()) {
+            throw new UnsupportedOperationException("Cannot run webview from a different thread than the one that created it.");
+        }
         Thread t = new Thread(this);
         t.setDaemon(false);
         t.setName("Webview RunAsync Thread - #" + this.hashCode());
@@ -264,7 +295,7 @@ public class WebviewCore implements Closeable, Runnable {
     @Override
     public void close() {
         WebviewCore.handleError(WebviewNative.INSTANCE.webview_terminate($webview_t));
-        bind_refs.clear();
+        bindRefs.clear();
     }
 
     /**

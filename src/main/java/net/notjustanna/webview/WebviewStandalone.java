@@ -203,34 +203,63 @@ public class WebviewStandalone implements Closeable, Runnable {
         return this;
     }
 
+    /**
+     * Sets the dark mode appearance for the webview window.
+     *
+     * @param darkMode Whether to enable dark mode.
+     * @return Itself for chaining.
+     */
     public WebviewStandalone setDarkMode(boolean darkMode) {
-        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
-            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
-            WinHelper.setWindowAppearance(window, darkMode);
+        if (PlatformSpecific.current.isWindows()) {
+            WinHelper.setWindowAppearance(this.webview, darkMode);
         }
         return this;
     }
 
+    /**
+     * Brings the webview window to the front of all other windows.
+     *
+     * @return Itself for chaining.
+     */
     public WebviewStandalone bringToFront() {
-        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
-            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
-            WinHelper.bringToFront(window);
+        if (PlatformSpecific.current.isWindows()) {
+            WinHelper.bringToFront(this.webview);
         }
         return this;
     }
 
+    /**
+     * Sets the webview window to always stay on top of other windows.
+     *
+     * @return Itself for chaining.
+     */
+    public WebviewStandalone alwaysOnTop() {
+        if (PlatformSpecific.current.isWindows()) {
+            WinHelper.alwaysOnTop(this.webview);
+        }
+        return this;
+    }
+
+    /**
+     * Sets the webview window to fullscreen mode.
+     *
+     * @return Itself for chaining.
+     */
     public WebviewStandalone fullscreenWindow() {
-        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
-            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
-            WinHelper.fullscreenWindow(window);
+        if (PlatformSpecific.current.isWindows()) {
+            WinHelper.fullscreenWindow(this.webview);
         }
         return this;
     }
 
+    /**
+     * Maximizes the webview window.
+     *
+     * @return Itself for chaining.
+     */
     public WebviewStandalone maximizeWindow() {
-        if (PlatformSpecific.current.getPackageName().startsWith("windows")) {
-            var window = WebviewNative.INSTANCE.webview_get_window(WebviewCore.nativePointer(this.webview));
-            WinHelper.maximizeWindow(window);
+        if (PlatformSpecific.current.isWindows()) {
+            WinHelper.maximizeWindow(this.webview);
         }
         return this;
     }
