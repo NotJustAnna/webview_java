@@ -6,7 +6,6 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
@@ -356,21 +355,6 @@ public interface WebviewNative extends Library {
         }
     }
 
-    /**
-     * Converts a C-style string to a Java String.
-     * @param arr The byte array to convert.
-     * @return The converted string.
-     */
-    static String cString(byte[] arr) {
-        int len;
-        for (len = 0; len < arr.length; len++) {
-            if (arr[len] == 0) {
-                break;
-            }
-        }
-        return new String(arr, 0, len);
-    }
-
     private static WebviewNative init() {
         String libName = PlatformSpecific.current.getBinaryName();
         String packageName = PlatformSpecific.current.getPackageName();
@@ -378,16 +362,17 @@ public interface WebviewNative extends Library {
         Class<WebviewNative> cls = WebviewNative.class;
         String lib = "/" + cls.getPackage().getName().replace('.', '/') + "/" + packageName + "/" + libName;
 
+        File temp;
         try (InputStream in = cls.getResourceAsStream(lib)) {
             Objects.requireNonNull(in, "Native library not found. It might be a missing dependency.");
-            Files.copy(in, Path.of(libName), StandardCopyOption.REPLACE_EXISTING);
+            temp = File.createTempFile(PlatformSpecific.current.getFileName(), '.' + PlatformSpecific.current.getFileExtension());
+            temp.deleteOnExit();
+            Files.copy(in, temp.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             throw new RuntimeException("Failed to load native library: " + libName, e);
         }
 
-        System.load(new File(libName).getAbsolutePath());
-        System.setProperty("jna.library.path", ".");
-
+        System.load(temp.getAbsolutePath());
         return Native.load("webview", cls, Map.of(Library.OPTION_STRING_ENCODING, "UTF-8"));
     }
 }

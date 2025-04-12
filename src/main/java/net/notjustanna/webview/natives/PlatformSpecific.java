@@ -1,6 +1,5 @@
 package net.notjustanna.webview.natives;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -10,7 +9,6 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-@AllArgsConstructor
 public enum PlatformSpecific {
     DARWIN("darwin", "libwebview.dylib"),
     LINUX_X86_64("linux-x86-64", "libwebview.so"),
@@ -22,9 +20,20 @@ public enum PlatformSpecific {
 
     private final String packageName;
     private final String binaryName;
-    private final boolean isWindows = this.name().startsWith("WINDOWS");
+    private final String fileName;
+    private final String fileExtension;
+    private final boolean isWindows;
 
     public static final PlatformSpecific current = detectCurrent();
+
+    PlatformSpecific(String packageName, String binaryName) {
+        String[] parts = binaryName.split("\\.", 2);
+        this.packageName = packageName;
+        this.binaryName = binaryName;
+        this.fileName = parts[0];
+        this.fileExtension = parts.length > 1 ? parts[1] : "bin";
+        this.isWindows = this.name().startsWith("WINDOWS");
+    }
 
     private static PlatformSpecific detectCurrent() {
         String os = System.getProperty("os.name").toLowerCase();

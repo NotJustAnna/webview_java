@@ -1,10 +1,13 @@
 package net.notjustanna.webview;
 
+import com.sun.jna.Native;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 import net.notjustanna.webview.natives.WebviewNative;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * Singleton class that provides information about the webview version.
@@ -31,9 +34,9 @@ public class WebviewInfo {
             struct.major,
             struct.minor,
             struct.patch,
-            WebviewNative.cString(struct.version_number),
-            WebviewNative.cString(struct.pre_release),
-            WebviewNative.cString(struct.build_metadata)
+            Native.toString(struct.version_number, StandardCharsets.UTF_8),
+            Native.toString(struct.pre_release, StandardCharsets.UTF_8),
+            Native.toString(struct.build_metadata, StandardCharsets.UTF_8)
         );
     }
 }
