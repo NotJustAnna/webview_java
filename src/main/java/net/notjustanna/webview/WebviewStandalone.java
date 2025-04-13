@@ -61,11 +61,11 @@ public class WebviewStandalone implements Closeable, Runnable {
 
     /**
      * Dispatches a runnable to the webview thread.
-     *
-     * @implNote Be very mindful of the fact that this will block the webview thread.
+     * @deprecated This method is deprecated and will be removed in future versions.
      * @param handler callback to be executed on the webview thread.
-     * @return Itself for chaining.
+     * @return Itself, for chaining.
      */
+    @Deprecated
     public WebviewStandalone dispatch(@NotNull Runnable handler) {
         webview.dispatch(handler);
         return this;
@@ -212,7 +212,7 @@ public class WebviewStandalone implements Closeable, Runnable {
      */
     public WebviewStandalone setDarkMode(boolean darkMode) {
         if (PlatformSpecific.current.isWindows()) {
-            WinHelper.setWindowAppearance(this.webview, darkMode);
+            webview.getDispatcher().wrapExec(() -> WinHelper.setWindowAppearance(this.webview, darkMode));
         }
         return this;
     }
@@ -224,7 +224,7 @@ public class WebviewStandalone implements Closeable, Runnable {
      */
     public WebviewStandalone bringToFront() {
         if (PlatformSpecific.current.isWindows()) {
-            WinHelper.bringToFront(this.webview);
+            webview.getDispatcher().wrapExec(() -> WinHelper.bringToFront(this.webview));
         }
         return this;
     }
@@ -236,7 +236,7 @@ public class WebviewStandalone implements Closeable, Runnable {
      */
     public WebviewStandalone alwaysOnTop() {
         if (PlatformSpecific.current.isWindows()) {
-            WinHelper.alwaysOnTop(this.webview);
+            webview.getDispatcher().wrapExec(() -> WinHelper.alwaysOnTop(this.webview));
         }
         return this;
     }
@@ -248,7 +248,7 @@ public class WebviewStandalone implements Closeable, Runnable {
      */
     public WebviewStandalone fullscreenWindow() {
         if (PlatformSpecific.current.isWindows()) {
-            WinHelper.fullscreenWindow(this.webview);
+            webview.getDispatcher().wrapExec(() -> WinHelper.fullscreenWindow(this.webview));
         }
         return this;
     }
@@ -260,7 +260,7 @@ public class WebviewStandalone implements Closeable, Runnable {
      */
     public WebviewStandalone maximizeWindow() {
         if (PlatformSpecific.current.isWindows()) {
-            WinHelper.maximizeWindow(this.webview);
+            webview.getDispatcher().wrapExec(() -> WinHelper.maximizeWindow(this.webview));
         }
         return this;
     }

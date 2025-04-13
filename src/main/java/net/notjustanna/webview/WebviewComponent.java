@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.notjustanna.webview.natives.PlatformSpecific;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.Closeable;
 import java.util.function.Consumer;
@@ -58,8 +59,8 @@ public class WebviewComponent extends Canvas implements Closeable {
         if (!this.initialized) {
             this.initialized = true;
 
-            // We need to create the webview off of the swing thread.
-            Thread t = new Thread(() -> {
+            EventQueue.invokeLater(() -> {
+                assert EventQueue.isDispatchThread();
                 this.webview = WebviewCore.newComponent(this.debug, this);
                 this.updateSize();
 
@@ -69,9 +70,6 @@ public class WebviewComponent extends Canvas implements Closeable {
 
                 this.webview.run();
             });
-            t.setDaemon(false);
-            t.setName("AWTWebview RunAsync Thread - #" + this.hashCode());
-            t.start();
         }
     }
 
