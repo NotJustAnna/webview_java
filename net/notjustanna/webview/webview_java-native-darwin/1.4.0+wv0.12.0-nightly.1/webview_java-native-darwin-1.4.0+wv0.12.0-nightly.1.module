@@ -1,0 +1,60 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.notjustanna.webview",
+    "module": "webview_java-native-darwin",
+    "version": "1.4.0+wv0.12.0-nightly.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "webview_java-native-darwin-1.4.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-native-darwin-1.4.0+wv0.12.0-nightly.1.jar",
+          "size": 76796,
+          "sha512": "fae1de5ad24695e1ec953597adfafe452fae83256a8cc30c688adf4c53c79c74b71a006be2609367cc5d490eaf04a20716bbddcdc041895072a24a23a5b05fcc",
+          "sha256": "b12df5d61909641a5ca0a0bdaea65e8b09fb12214dbdad928ac9d92e39f9b608",
+          "sha1": "3a45953d0baaca69b4e7eb3ca2144e14a0817d6d",
+          "md5": "2d21ba9eb724f00c7d53a71fe04611dd"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-native-darwin-1.4.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-native-darwin-1.4.0+wv0.12.0-nightly.1.jar",
+          "size": 76796,
+          "sha512": "fae1de5ad24695e1ec953597adfafe452fae83256a8cc30c688adf4c53c79c74b71a006be2609367cc5d490eaf04a20716bbddcdc041895072a24a23a5b05fcc",
+          "sha256": "b12df5d61909641a5ca0a0bdaea65e8b09fb12214dbdad928ac9d92e39f9b608",
+          "sha1": "3a45953d0baaca69b4e7eb3ca2144e14a0817d6d",
+          "md5": "2d21ba9eb724f00c7d53a71fe04611dd"
+        }
+      ]
+    }
+  ]
+}
