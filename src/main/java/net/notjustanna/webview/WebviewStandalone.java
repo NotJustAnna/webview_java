@@ -8,6 +8,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.Closeable;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 /**
  * Standalone webview instance.
@@ -28,6 +31,57 @@ public class WebviewStandalone implements Closeable, Runnable {
      */
     public WebviewStandalone(Boolean enableDevTools) {
         this.webview = WebviewCore.newStandalone(enableDevTools);
+    }
+
+    /**
+     * The dispatcher responsible for managing and executing native webview operations.
+     * <p>
+     * This field provides access to the {@link WebviewDispatcher} instance, which is used
+     * to execute tasks on the native webview thread.
+     */
+    public WebviewDispatcher getDispatcher() {
+        return webview.getDispatcher();
+    }
+
+    /**
+     * Retrieves a list of all currently bound JavaScript function names.
+     * <p>
+     * This method returns the keys from the internal map of bindings, which
+     * represent the names of JavaScript functions bound to native callbacks.
+     * <p>
+     * Remark: The list may be outdated if there are any pending bindings that
+     * have not yet been executed. This is because the bindings are executed
+     * asynchronously on the webview thread.
+     *
+     * @return A list of bound JavaScript function names.
+     */
+    public Set<String> boundFunctions() {
+        return webview.boundFunctions();
+    }
+
+    /**
+     * The error handler for uncaught exceptions.
+     * <p>
+     * This {@link Consumer} is invoked when an uncaught exception occurs
+     * during task execution. By default, it logs the exception as a warning.
+     *
+     * @param errorHandler The error handler to set.
+     */
+    public void setErrorHandler(Consumer<Throwable> errorHandler) {
+        webview.setErrorHandler(errorHandler);
+    }
+
+    /**
+     * Terminates the webview instance asynchronously.
+     * <p>
+     * This method dispatches a task to the webview thread to terminate the webview,
+     * clear all bindings, and release resources. It returns a `CompletableFuture`
+     * that completes when the termination process is finished.
+     *
+     * @return A `CompletableFuture` that completes when the webview is terminated.
+     */
+    public CompletableFuture<Void> terminate() {
+        return webview.terminate();
     }
 
     /**
