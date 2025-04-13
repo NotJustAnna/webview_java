@@ -373,6 +373,6 @@ public interface WebviewNative extends Library {
         }
 
         System.load(temp.getAbsolutePath());
-        return Native.load("webview", cls, Map.of(Library.OPTION_STRING_ENCODING, "UTF-8"));
+        return Native.load(temp.getAbsolutePath(), cls, Map.of(Library.OPTION_STRING_ENCODING, "UTF-8"));
     }
 }
