@@ -28,10 +28,10 @@
           "name": "webview_java-native-windows-x86-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-native-windows-x86-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 42802,
-          "sha512": "0c2b9c112af8ddbaf5cc805b18167a5b7bbb1da8ba3d0fa3d7d39ce75750ce5db2e7dc3b0ad2dd5118c0ba15abf4fc2908d51a189794e9d5c6b3325131c64851",
-          "sha256": "840fbdfc0af9647d17109928693e87d66ddf1d3627b1636815045a8958ef8836",
-          "sha1": "7b28caedfc4aecbceb6f9632cbc815185842027e",
-          "md5": "56de97a9e9ecaba7d58c479ed77af289"
+          "sha512": "e7b09c89de7f3bb461004f1165e36b15d2ff6dcc9b6ba7443eb1c7ff45d495c7fb3817446d4103ee26f785842ee693b6a46f04b096722a05b232f23ba4c7c716",
+          "sha256": "2c4c213fae5b5c1f9c6e27194944b51945e87c55c978763e27d10ae6e4d43474",
+          "sha1": "8c1d8cc62916e8073b7ce6cae6fcfcbad68e2807",
+          "md5": "319a09dd0ad6e7a4f1e0f76c6057d452"
         }
       ]
     },
@@ -49,10 +49,10 @@
           "name": "webview_java-native-windows-x86-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-native-windows-x86-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 42802,
-          "sha512": "0c2b9c112af8ddbaf5cc805b18167a5b7bbb1da8ba3d0fa3d7d39ce75750ce5db2e7dc3b0ad2dd5118c0ba15abf4fc2908d51a189794e9d5c6b3325131c64851",
-          "sha256": "840fbdfc0af9647d17109928693e87d66ddf1d3627b1636815045a8958ef8836",
-          "sha1": "7b28caedfc4aecbceb6f9632cbc815185842027e",
-          "md5": "56de97a9e9ecaba7d58c479ed77af289"
+          "sha512": "e7b09c89de7f3bb461004f1165e36b15d2ff6dcc9b6ba7443eb1c7ff45d495c7fb3817446d4103ee26f785842ee693b6a46f04b096722a05b232f23ba4c7c716",
+          "sha256": "2c4c213fae5b5c1f9c6e27194944b51945e87c55c978763e27d10ae6e4d43474",
+          "sha1": "8c1d8cc62916e8073b7ce6cae6fcfcbad68e2807",
+          "md5": "319a09dd0ad6e7a4f1e0f76c6057d452"
         }
       ]
     }

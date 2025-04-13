@@ -28,10 +28,10 @@
           "name": "webview_java-all-natives-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-all-natives-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 261,
-          "sha512": "682d794d63dc737836b9d3965061929ac4644942b71f11bc414b7e3580a80c2d42e635c88b0b44ef9be27580736db923b76ec02d6d9950539886b93dc113a3f7",
-          "sha256": "8a38dd9887399d9e0a093ae778ba01dea5ec232dba0cce0cab4118012f066d43",
-          "sha1": "d6676051287f20a27c651544690ace5367586ced",
-          "md5": "3b799b436abad1d313858b781c621295"
+          "sha512": "fd69a5e5750855729c6a90281a7c72856c22321a1c6d5b2db22a95ebb2898b4e34dcdb642b2b1232be83c20827eccdbff27fb3f14e82e6d004e0a32086d901e7",
+          "sha256": "11b35681f0da975fba0be21072dfc69a71cb61e359d8a4757f4b3a149f456a1f",
+          "sha1": "870ed5fefb31f818ca476783e30b8ee96049c670",
+          "md5": "f1ae64c5347e1c0a75458bef38e4b329"
         }
       ]
     },
@@ -86,10 +86,10 @@
           "name": "webview_java-all-natives-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-all-natives-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 261,
-          "sha512": "682d794d63dc737836b9d3965061929ac4644942b71f11bc414b7e3580a80c2d42e635c88b0b44ef9be27580736db923b76ec02d6d9950539886b93dc113a3f7",
-          "sha256": "8a38dd9887399d9e0a093ae778ba01dea5ec232dba0cce0cab4118012f066d43",
-          "sha1": "d6676051287f20a27c651544690ace5367586ced",
-          "md5": "3b799b436abad1d313858b781c621295"
+          "sha512": "fd69a5e5750855729c6a90281a7c72856c22321a1c6d5b2db22a95ebb2898b4e34dcdb642b2b1232be83c20827eccdbff27fb3f14e82e6d004e0a32086d901e7",
+          "sha256": "11b35681f0da975fba0be21072dfc69a71cb61e359d8a4757f4b3a149f456a1f",
+          "sha1": "870ed5fefb31f818ca476783e30b8ee96049c670",
+          "md5": "f1ae64c5347e1c0a75458bef38e4b329"
         }
       ]
     }

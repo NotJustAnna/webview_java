@@ -28,10 +28,10 @@
           "name": "webview_java-interop-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-interop-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 6093,
-          "sha512": "ede0c49a64fa831cdd936d3ec83dd01c73ed7f64054d7d2002612d0031182a655f39ba80beaba815b16935cc76a34781228392d295930f6469d4204f2073892c",
-          "sha256": "673947f5d490897bc86819d39741c98496a85a5d61d6f5511d5c3e5b3471bbf4",
-          "sha1": "ed25e6146e2847a9f6527e503eba7eb152ecbc4f",
-          "md5": "1400f06b5a679f84fe502c6138e82f07"
+          "sha512": "1f4a63b305f3cbc8f7a71c937296dc611aa37458fe3e81dddc4eb0418a28900eccf9ed80ca5c96adde18122b631d3dc10bc6a2fc7945019ce73c9d0e28989c17",
+          "sha256": "d4c54fda3c7cdc6f5a8bb81139fde4f7b4df1ebb07faeef1a073292d3335bb73",
+          "sha1": "78a89b7683716186c989145671eda478ee43ef56",
+          "md5": "e719486edadc40c01f81f2a4836e1fc5"
         }
       ]
     },
@@ -72,10 +72,10 @@
           "name": "webview_java-interop-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-interop-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 6093,
-          "sha512": "ede0c49a64fa831cdd936d3ec83dd01c73ed7f64054d7d2002612d0031182a655f39ba80beaba815b16935cc76a34781228392d295930f6469d4204f2073892c",
-          "sha256": "673947f5d490897bc86819d39741c98496a85a5d61d6f5511d5c3e5b3471bbf4",
-          "sha1": "ed25e6146e2847a9f6527e503eba7eb152ecbc4f",
-          "md5": "1400f06b5a679f84fe502c6138e82f07"
+          "sha512": "1f4a63b305f3cbc8f7a71c937296dc611aa37458fe3e81dddc4eb0418a28900eccf9ed80ca5c96adde18122b631d3dc10bc6a2fc7945019ce73c9d0e28989c17",
+          "sha256": "d4c54fda3c7cdc6f5a8bb81139fde4f7b4df1ebb07faeef1a073292d3335bb73",
+          "sha1": "78a89b7683716186c989145671eda478ee43ef56",
+          "md5": "e719486edadc40c01f81f2a4836e1fc5"
         }
       ]
     },
@@ -92,10 +92,10 @@
           "name": "webview_java-interop-1.3.0+wv0.12.0-nightly.1-sources.jar",
           "url": "webview_java-interop-1.3.0+wv0.12.0-nightly.1-sources.jar",
           "size": 4637,
-          "sha512": "7f9c525c94917418a78ef163ede3e502f80917c424e32263949c696db986a2450d19a17828a8dbf039f70541b8b9c4ff1de24285d32d151fa7e05b6503c07ab6",
-          "sha256": "1a93c9d291fc1478e5edd0c67f799389f7480445d73c305b0f3b9030126639da",
-          "sha1": "23860c3a67bdb613dfdeb6c362ab82a0e6709ee8",
-          "md5": "ef05651162ee924af7f8f9fe855a9600"
+          "sha512": "11cea7e62da76712c979e6d93048eaed27da93157417370336d41acd649699f6be2e403504a2b107c12c2902bf3907e71e54cb70f8e0ed0afee87fd282f7ccad",
+          "sha256": "47cc793ac65bf4faafa3b4ee15c44576177f264153f2fbecd89c0e5d4d9040d4",
+          "sha1": "2ffc2846efdd0631f1f28d5bc9af2a33c8308a74",
+          "md5": "94b14089bf7dd2b80f5ba8c3b77b26ab"
         }
       ]
     },
@@ -112,10 +112,10 @@
           "name": "webview_java-interop-1.3.0+wv0.12.0-nightly.1-javadoc.jar",
           "url": "webview_java-interop-1.3.0+wv0.12.0-nightly.1-javadoc.jar",
           "size": 94138,
-          "sha512": "a5b2925107940eb75361ee412355f5215d56473d042458f05496ad56c2e7f591bca86f88b5b48aa12f70248faac5f9227bde8871479b3de74f41ab9387025a75",
-          "sha256": "1dccc67f5ebbe58d485bc816106b1319167d467c1c911ef607485c849e8ee88b",
-          "sha1": "78d0fabf9cadee8d9c2143bcf0c0a78a9edfa524",
-          "md5": "80df00ab830ee241a8c934ee646b2a74"
+          "sha512": "735bdd25a4421411ad211c073d54985bfdb2d6ce5f0d183ef59585ba1df326ebb9706fa0df2d57c80e578179b035f9464272e04f09a2a8b0674c321deafa24e3",
+          "sha256": "6829c4c91093f4c0ab3b806f9a5ab9d19f81def5aa1f8b269e3e8844d5ee6cf5",
+          "sha1": "e810faf684dae335698629f765713fe3b9df7378",
+          "md5": "1477a1bf14caf052f34202ab2c8e6206"
         }
       ]
     }

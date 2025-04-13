@@ -37,10 +37,10 @@
           "name": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 3290,
-          "sha512": "cc890f31c9be5714d925b028be275524f7af862bf2e0ab06ad0ec4ee7b1355f20ae5471242b2ad6fe12bea7af5aaa48ca137a358202d733bd44f3697559572a5",
-          "sha256": "2a0c6efaf898aaca38a7467f9133cb2938ca2bf667838d7aade1dc50baf76e8b",
-          "sha1": "3525227d729544696714cf80e1f62fda221899ad",
-          "md5": "cb7c74bcc8d93f14cf5d2d824d5d633f"
+          "sha512": "61b73546b36631b47d82608748b3092df64d6584fe744ec5398cbdb8de806c3622a30c197125279e332ce850135fcc28a5c15af10671a760d8a6f8b180e8f9d1",
+          "sha256": "60f2ba851aa9cade43c158aa1b25762d90cfa85ab6224116751e4c3e1a98f19a",
+          "sha1": "125dfbcd771181c3c2cdf03115c78389416c795e",
+          "md5": "019d60ec6a2441462ed1502c34652783"
         }
       ]
     },
@@ -95,10 +95,10 @@
           "name": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 3290,
-          "sha512": "cc890f31c9be5714d925b028be275524f7af862bf2e0ab06ad0ec4ee7b1355f20ae5471242b2ad6fe12bea7af5aaa48ca137a358202d733bd44f3697559572a5",
-          "sha256": "2a0c6efaf898aaca38a7467f9133cb2938ca2bf667838d7aade1dc50baf76e8b",
-          "sha1": "3525227d729544696714cf80e1f62fda221899ad",
-          "md5": "cb7c74bcc8d93f14cf5d2d824d5d633f"
+          "sha512": "61b73546b36631b47d82608748b3092df64d6584fe744ec5398cbdb8de806c3622a30c197125279e332ce850135fcc28a5c15af10671a760d8a6f8b180e8f9d1",
+          "sha256": "60f2ba851aa9cade43c158aa1b25762d90cfa85ab6224116751e4c3e1a98f19a",
+          "sha1": "125dfbcd771181c3c2cdf03115c78389416c795e",
+          "md5": "019d60ec6a2441462ed1502c34652783"
         }
       ]
     },
@@ -115,10 +115,10 @@
           "name": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1-sources.jar",
           "url": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1-sources.jar",
           "size": 2909,
-          "sha512": "f1317e67192a3d9476cddb6f666bee0046493d97756edc793f22f8fce316206f4eb97b5712644eb79fd5f3d07636258d3f1c7e50f53bfc175129dc78e01de18c",
-          "sha256": "59a59de19377518bc6f2d89dbdca77b54481b72f86cfef779c82f09cb65b3956",
-          "sha1": "59756ba109ac8399485eda1ba186da7d0273ce02",
-          "md5": "55dda08f72586a5170312fdb1dbc8999"
+          "sha512": "3c4d7deb568caa50c4b3d37fbb730f5418643f8b1fc45cd2734f144a8df1db58773c4f1f315b0b88f855debbe895b11455b569adbe0d53f97f697ff1c97a98f3",
+          "sha256": "986729366489a2bfa95c78234757d61f7608fcb3e1b3a10a20b33935a4f3fe16",
+          "sha1": "8906095b5fa28302508a95f7586f897b95841b42",
+          "md5": "b4aaed8c1157ce0ef77184e0b78fd2cc"
         }
       ]
     },
@@ -135,10 +135,10 @@
           "name": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1-javadoc.jar",
           "url": "webview_java-interop-gson-1.3.0+wv0.12.0-nightly.1-javadoc.jar",
           "size": 89755,
-          "sha512": "7573dbfa77617a270bb6a468f02040c380c087330ba43c70a91ded62b62e06474be281372063087a0e31e74e9d2de999bc8eb1e0d2cfb6d4b7f9d88c5f5ec675",
-          "sha256": "9166727c92b703b341e1f6b2150bdd2f2c181161d02c505805a070273561a5be",
-          "sha1": "12b4c95104884458a97fff0c8dee502b38511441",
-          "md5": "8c8a91baf50930284e4ca177e8ad15fc"
+          "sha512": "9e0849e18da0b5d9427ad520f90ff2b0cb0b3737fac8903263c6adb1e421d218900411740776696b7cbdca232134e52498494bf06ab8bfad8be71b620923203a",
+          "sha256": "14a6caeb469730c8a272d64de567aba4f45b96091caf9bb944ed0269b922dbe5",
+          "sha1": "5514f6b22db59bf9d50c2e596c50b79c680edda5",
+          "md5": "8ac2ab484824c3059b24c90bce14d482"
         }
       ]
     }

@@ -37,10 +37,10 @@
           "name": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 3238,
-          "sha512": "03c8f3f64c1c38f722d78b070f4975e62426c64e3f0e6e3441c347ccb755b48019918e71d7fe19ef3d64cb8f13059662fb7ba0e3c3a5b540b99a115a7a91be82",
-          "sha256": "11db992393d298b83893a9ead04117f1bfa32e2952a5a0d3dc9225785572d94d",
-          "sha1": "ac6e844fdd767f721705a7c127b3973bde2eef34",
-          "md5": "dcbb494596c5fbf2d15e40f3c4760bfc"
+          "sha512": "be375d4eec75e3a19cecb1bca0b9f9973a9ecaa45d80623b218acc66e0542dabe84bc7aec812e46962a406ca1d4cf8585962efb2ce5502b7e71ff74740034180",
+          "sha256": "1ce63f251ccb04720bdc032c769afbc981ea891e2f2bfb6c34894fc5bf43200e",
+          "sha1": "d9c2a335f5d19dfb517b02435843c1684c4c3899",
+          "md5": "0abf44fa4a5fa54cae1dca2b53520a13"
         }
       ]
     },
@@ -95,10 +95,10 @@
           "name": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1.jar",
           "url": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1.jar",
           "size": 3238,
-          "sha512": "03c8f3f64c1c38f722d78b070f4975e62426c64e3f0e6e3441c347ccb755b48019918e71d7fe19ef3d64cb8f13059662fb7ba0e3c3a5b540b99a115a7a91be82",
-          "sha256": "11db992393d298b83893a9ead04117f1bfa32e2952a5a0d3dc9225785572d94d",
-          "sha1": "ac6e844fdd767f721705a7c127b3973bde2eef34",
-          "md5": "dcbb494596c5fbf2d15e40f3c4760bfc"
+          "sha512": "be375d4eec75e3a19cecb1bca0b9f9973a9ecaa45d80623b218acc66e0542dabe84bc7aec812e46962a406ca1d4cf8585962efb2ce5502b7e71ff74740034180",
+          "sha256": "1ce63f251ccb04720bdc032c769afbc981ea891e2f2bfb6c34894fc5bf43200e",
+          "sha1": "d9c2a335f5d19dfb517b02435843c1684c4c3899",
+          "md5": "0abf44fa4a5fa54cae1dca2b53520a13"
         }
       ]
     },
@@ -115,10 +115,10 @@
           "name": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1-sources.jar",
           "url": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1-sources.jar",
           "size": 2606,
-          "sha512": "e3e9b9d55b43ee819378d5fbede05bea4fb6ce9d42e6616cc1c9bebc96137be95a3837d448204a6b43f32baddf4103352efb892f2c219f11c9741e42e8c16e44",
-          "sha256": "60c008dc16e456deac314e2c3b08119ee2cee9d709849810a56c0aea0402a2e4",
-          "sha1": "b5539c3af29760b9751bbbe64449d08b34cf0671",
-          "md5": "1599ef70e01e19d0f89c0ab049ef700d"
+          "sha512": "c2d85b8a6f02892c9716169750115174fc85c3644a0832f14f3e2de2d779989b75e3eae1240bcddb1d1c20704f68f75112c3d701377bd42072f13d99acf166cd",
+          "sha256": "d7c57fdc71b43871819b03c6d9691280a0194d50abb7dbf9675ca0e23cf72083",
+          "sha1": "2ed2f3d025269258ce29e78db43c02dfcdde83dd",
+          "md5": "fc903794be8ef46385f2ade8a767fa97"
         }
       ]
     },
@@ -135,10 +135,10 @@
           "name": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1-javadoc.jar",
           "url": "webview_java-interop-nanojson-1.3.0+wv0.12.0-nightly.1-javadoc.jar",
           "size": 89011,
-          "sha512": "01bff5f12d203c7400e9cf9e823f505ca79b66fbcea9958ba792fadb31194c70b1f817e84a0e0c4ba62fb01785d626ad7096299718191abbc74cf60b032a73a4",
-          "sha256": "f486a3550ed2fdf8bb10a93140ecddaac7b236a28878dfa927da9673d4df4c8c",
-          "sha1": "6b3b5a3e7f320dc7861af6eb7460d1dd8132bf38",
-          "md5": "8c9385639c7a128fda89d341b08caf69"
+          "sha512": "dd277a9fc718b07b767fc8a50b4b45ddd3fa6761a1c682324436cff63d2c62634805fd52710df03acd97b11251b9a163866671fd05fab52f67d296e166427b4b",
+          "sha256": "00f6a131d44d87e236b4c2477e64e7e60a89d9fe53f9c354e5c159c4c4e4e5d3",
+          "sha1": "a39a12f10aa850ccb6dc5d9e736a942d9336601b",
+          "md5": "c0d9b7b4d5c1a03a808cba5b36d31daa"
         }
       ]
     }
