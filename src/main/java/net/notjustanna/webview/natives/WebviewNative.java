@@ -146,7 +146,7 @@ public interface WebviewNative extends Library {
      * <p>
      * Since library functions generally do not have thread safety guarantees,
      * this function can be used to schedule code to execute on the main/GUI
-     * thread and thereby make that execution safe in multi-threaded applications.
+     * thread and thereby make that execution safe in multithreaded applications.
      *
      * @param w   The webview instance.
      * @param fn  The function to be invoked.

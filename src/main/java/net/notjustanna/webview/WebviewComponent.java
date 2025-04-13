@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import net.notjustanna.webview.natives.PlatformSpecific;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.Closeable;
 import java.util.function.Consumer;
