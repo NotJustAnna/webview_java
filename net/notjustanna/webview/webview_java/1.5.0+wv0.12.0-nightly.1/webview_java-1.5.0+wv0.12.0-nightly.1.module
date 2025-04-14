@@ -1,0 +1,116 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.notjustanna.webview",
+    "module": "webview_java",
+    "version": "1.5.0+wv0.12.0-nightly.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "webview_java-1.5.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-1.5.0+wv0.12.0-nightly.1.jar",
+          "size": 27882,
+          "sha512": "9f72f0ddab029070f82006b148a04a089ea217931d9c9ac3fa92f855d7e746beef8e16e041cd486cc6d74c22cc589f773d097e368a93dbac159d5203032ad5cf",
+          "sha256": "5d5f49ed6db4a15a35a46bff26f9b35ceac3e9129ade2f58badb79cdccae1deb",
+          "sha1": "23127b0d768731755f345093e73451a802a5ec11",
+          "md5": "38340ba229cea886511a79a29d0dedc8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.java.dev.jna",
+          "module": "jna",
+          "version": {
+            "requires": "5.17.0"
+          }
+        },
+        {
+          "group": "net.java.dev.jna",
+          "module": "jna-platform",
+          "version": {
+            "requires": "5.17.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "webview_java-1.5.0+wv0.12.0-nightly.1.jar",
+          "url": "webview_java-1.5.0+wv0.12.0-nightly.1.jar",
+          "size": 27882,
+          "sha512": "9f72f0ddab029070f82006b148a04a089ea217931d9c9ac3fa92f855d7e746beef8e16e041cd486cc6d74c22cc589f773d097e368a93dbac159d5203032ad5cf",
+          "sha256": "5d5f49ed6db4a15a35a46bff26f9b35ceac3e9129ade2f58badb79cdccae1deb",
+          "sha1": "23127b0d768731755f345093e73451a802a5ec11",
+          "md5": "38340ba229cea886511a79a29d0dedc8"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-1.5.0+wv0.12.0-nightly.1-sources.jar",
+          "url": "webview_java-1.5.0+wv0.12.0-nightly.1-sources.jar",
+          "size": 19486,
+          "sha512": "5dcdf556d2c2ffa26d6ab66490ea706e98b18a472e45f69edbf5098a03c7ee53bb3376900583e558f17e8b90f27673c838414177363ee0b8c7744aef13d8fec0",
+          "sha256": "a2c6981a0194319a15a54d25cebbc552fc3ef4c80b6e11659a4a5e7f1618f660",
+          "sha1": "f256462632923afe2e445b3a6753bd4a25b0863c",
+          "md5": "ccbe7ef27bac53e7b34977f2c409726e"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "webview_java-1.5.0+wv0.12.0-nightly.1-javadoc.jar",
+          "url": "webview_java-1.5.0+wv0.12.0-nightly.1-javadoc.jar",
+          "size": 157978,
+          "sha512": "c0408a19e11eda086fc71ea39ae07748fcf13914a48da8bd0559656f7c2c6642ad381b38e7a3c9f86023818f959d25fce317c46063800f7567f11e46cb902c47",
+          "sha256": "acb9e5b223cf649e502b5bcf31555e6befcaddbfae0df8680077126266c50dcb",
+          "sha1": "87b18332835fe0fc30f8924bfde627d392fb70b4",
+          "md5": "8e9165f0173f4870f0dd5e35661dee70"
+        }
+      ]
+    }
+  ]
+}

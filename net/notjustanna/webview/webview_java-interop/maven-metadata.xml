@@ -3,8 +3,8 @@
   <groupId>net.notjustanna.webview</groupId>
   <artifactId>webview_java-interop</artifactId>
   <versioning>
-    <latest>1.4.0+wv0.12.0-nightly.1</latest>
-    <release>1.4.0+wv0.12.0-nightly.1</release>
+    <latest>1.5.0+wv0.12.0-nightly.1</latest>
+    <release>1.5.0+wv0.12.0-nightly.1</release>
     <versions>
       <version>1.1.0+wv0.12.0-nightly.1</version>
       <version>1.1.1+wv0.12.0-nightly.1</version>
@@ -13,7 +13,8 @@
       <version>1.3.0+wv0.12.0-nightly.1</version>
       <version>1.3.1+wv0.12.0-nightly.1</version>
       <version>1.4.0+wv0.12.0-nightly.1</version>
+      <version>1.5.0+wv0.12.0-nightly.1</version>
     </versions>
-    <lastUpdated>20250413213702</lastUpdated>
+    <lastUpdated>20250414111229</lastUpdated>
   </versioning>
 </metadata>
