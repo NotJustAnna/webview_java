@@ -2,7 +2,6 @@ package net.notjustanna.webview;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.notjustanna.webview.natives.PlatformSpecific;
 
 import java.awt.*;
 import java.io.Closeable;
@@ -12,78 +11,47 @@ import java.util.function.Consumer;
  * Canvas component for embedding a webview in a Java AWT application.
  *
  * @author Alex Bowles, Anna Silva
+ * @deprecated This component is deprecated and broken in all platforms.
  */
+@Deprecated
 public class WebviewComponent extends Canvas implements Closeable {
     @Getter
-    private WebviewCore webview;
-    private final boolean debug;
-
-    private Dimension lastSize;
+    private final WebviewCore webview;
 
     /**
      * The callback handler for when the Webview gets created.
      */
     @Setter
+    @Deprecated
     private Consumer<WebviewCore> onInitialized;
 
-    private @Getter boolean initialized = false;
+    @Getter
+    @Deprecated
+    private final boolean initialized;
 
+    /**
+     * @deprecated This component is deprecated and broken in all platforms.
+     */
+    @Deprecated
     public WebviewComponent() {
-        this(false);
+        throw new UnsupportedOperationException("WebviewComponent is broken in all platforms and deprecated.");
     }
 
     /**
-     * @param debug Whether to allow the opening of inspect element/devtools.
+     * @deprecated This component is deprecated and broken in all platforms.
      */
+    @Deprecated
     public WebviewComponent(boolean debug) {
-        if (PlatformSpecific.current == PlatformSpecific.DARWIN) {
-            throw new UnsupportedOperationException("WebviewComponent is not supported on macOS.");
-        }
-        this.debug = debug;
-        this.setBackground(Color.BLACK);
+        throw new UnsupportedOperationException("WebviewComponent is broken in all platforms and deprecated.");
     }
 
     @Override
+    @Deprecated
     public void paint(Graphics g) {
-        Dimension size = this.getSize();
-
-        if (!size.equals(this.lastSize)) {
-            this.lastSize = size;
-
-            if (this.webview != null) {
-                this.updateSize();
-            }
-        }
-
-        if (!this.initialized) {
-            this.initialized = true;
-
-            EventQueue.invokeLater(() -> {
-                assert EventQueue.isDispatchThread();
-                this.webview = WebviewCore.newComponent(this.debug, this);
-                this.updateSize();
-
-                if (this.onInitialized != null) {
-                    this.onInitialized.accept(this.webview);
-                }
-
-                this.webview.run();
-            });
-        }
-    }
-
-    private void updateSize() {
-        int width = this.lastSize.width;
-        int height = this.lastSize.height;
-
-        this.webview.setFixedSize(width, height);
     }
 
     @Override
+    @Deprecated
     public void close() {
-        this.webview.close();
-        this.initialized = false;
-        this.webview = null;
     }
-
 }

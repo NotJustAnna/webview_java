@@ -26,7 +26,7 @@ import java.util.function.Supplier;
  * Core webview instance, responsible for properly interfacing with native libraries.
  *
  * @author Alex Bowles, Anna Silva
- * @implNote This class is not meant to be used directly, use {@link WebviewStandalone} or {@link WebviewComponent} instead.
+ * @implNote This class is not meant to be used directly, use {@link WebviewStandalone} instead.
  */
 @Log
 public class WebviewCore implements Closeable, Runnable {
@@ -48,8 +48,9 @@ public class WebviewCore implements Closeable, Runnable {
      * @param enableDevTools Enable developer tools if supported by the backend.
      * @param component      The component to create the webview in.
      * @return A new webview core instance.
-     * @implNote use {@link WebviewComponent} instead.
+     * @deprecated Embedding webviews in components is deprecated and broken in all platforms.
      */
+    @Deprecated
     public static WebviewCore newComponent(boolean enableDevTools, @NotNull Component component) {
         Pointer componentPointer = Native.getComponentPointer(component);
         return new WebviewCore(enableDevTools, componentPointer);
